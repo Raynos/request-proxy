@@ -1,0 +1,49 @@
+{
+  "name": "request-proxy",
+  "version": "0.1.0",
+  "description": "A version of request that's local to a fixed base uri",
+  "keywords": [],
+  "author": "Raynos <raynos2@gmail.com>",
+  "repository": "git://github.com/Raynos/request-proxy.git",
+  "main": "index",
+  "homepage": "https://github.com/Raynos/request-proxy",
+  "contributors": [{
+    "name": "Raynos"
+  }],
+  "bugs": {
+    "url": "https://github.com/Raynos/request-proxy/issues",
+    "email": "raynos2@gmail.com"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "tape": "~1.0.2"
+  },
+  "licenses": [{
+    "type": "MIT",
+    "url": "http://github.com/Raynos/request-proxy/raw/master/LICENSE"
+  }],
+  "scripts": {
+    "test": "node ./test/index.js",
+    "start": "node ./index.js",
+    "watch": "nodemon -w ./index.js index.js",
+    "travis-test": "istanbul cover ./test/index.js && ((cat coverage/lcov.info | coveralls) || exit 0)",
+    "cover": "istanbul cover --report none --print detail ./test/index.js",
+    "view-cover": "istanbul report html && google-chrome ./coverage/index.html"
+  },
+  "testling": {
+    "files": "test/index.js",
+    "browsers": [
+      "ie/8..latest",
+      "firefox/16..latest",
+      "firefox/nightly",
+      "chrome/22..latest",
+      "chrome/canary",
+      "opera/12..latest",
+      "opera/next",
+      "safari/5.1..latest",
+      "ipad/6.0..latest",
+      "iphone/6.0..latest",
+      "android-browser/4.2..latest"
+    ]
+  }
+}

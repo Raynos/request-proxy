@@ -1,6 +1,6 @@
 {
   "name": "request-proxy",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A version of request that's local to a fixed base uri",
   "keywords": [],
   "author": "Raynos <raynos2@gmail.com>",

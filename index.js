@@ -24,6 +24,10 @@ function RequestProxy(options) {
         baseUri = baseUri ":" + options.port
     }
 
+    if (options.path) {
+        baseUri = baseUri + options.path
+    }
+
     extend(requestProxy, request)
 
     return requestProxy

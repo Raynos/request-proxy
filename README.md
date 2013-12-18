@@ -29,6 +29,7 @@ request("/foo", function (err, res, body) {
 ## Contributors
 
  - Raynos
+ - pluma
 
 ## MIT Licenced
 

@@ -21,6 +21,10 @@ function RequestProxy(options) {
 
     var baseUri = protocol + "://" + host + ":" + port
 
+    if (options.path) {
+        baseUri = baseUri + options.path
+    }
+
     extend(requestProxy, request)
 
     return requestProxy

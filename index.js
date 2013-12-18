@@ -8,7 +8,7 @@ var defaults = {
 
 module.exports = RequestProxy
 
-function RequestProxy(options) {
+function buildUri(options) {
     if (typeof options === "number") {
         options = { port: options }
     } else if (!options) {
@@ -17,15 +17,26 @@ function RequestProxy(options) {
 
     var protocol = options.protocol || defaults.protocol
     var host = options.host || defaults.host
-
-    var baseUri = protocol + "://" + host
+    var uri = protocol + "://" + host
 
     if (options.port) {
-        baseUri = baseUri + ":" + options.port
+        uri = uri + ":" + options.port
     }
 
     if (options.path) {
-        baseUri = baseUri + options.path
+        uri = uri + options.path
+    }
+
+    return uri
+}
+
+function RequestProxy(options) {
+    var baseUri = null
+
+    if (typeof options === "string") {
+        baseUri = options
+    } else {
+        baseUri = buildUri(options)
     }
 
     extend(requestProxy, request)

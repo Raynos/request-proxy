@@ -21,7 +21,7 @@
     "request": "~2.21.0"
   },
   "devDependencies": {
-    "mockery": "~1.4.0",
+    "rewire": "~2.0.0",
     "tape": "~1.0.2"
   },
   "licenses": [

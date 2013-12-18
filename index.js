@@ -1,9 +1,10 @@
 var extend = require("xtend/mutable")
 var request = require("request")
+var url = require("url")
 
 var defaults = {
     protocol: "http",
-    host: "localhost"
+    hostname: "localhost"
 }
 
 module.exports = RequestProxy
@@ -15,11 +16,11 @@ function RequestProxy(options) {
         options = {}
     }
 
-    var port = options.port || -1
-    var protocol = options.protocol || defaults.protocol
-    var host = options.host || defaults.host
-
-    var baseUri = protocol + "://" + host + ":" + port
+    if (typeof options === "string") {
+        var baseUri = options
+    } else {
+        var baseUri = url.format(extend({}, defaults, options))
+    }
 
     extend(requestProxy, request)
 

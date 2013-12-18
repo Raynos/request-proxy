@@ -24,8 +24,6 @@ function RequestProxy(options) {
         baseUri = baseUri ":" + options.port
     }
 
-    console.log(baseUri)
-
     extend(requestProxy, request)
 
     return requestProxy

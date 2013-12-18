@@ -15,11 +15,14 @@ function RequestProxy(options) {
         options = {}
     }
 
-    var port = options.port || -1
     var protocol = options.protocol || defaults.protocol
     var host = options.host || defaults.host
 
-    var baseUri = protocol + "://" + host + ":" + port
+    var baseUri = protocol + "://" + host
+
+    if (options.port) {
+        baseUri = baseUri ":" + options.port
+    }
 
     extend(requestProxy, request)
 

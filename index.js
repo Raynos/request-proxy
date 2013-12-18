@@ -21,7 +21,7 @@ function RequestProxy(options) {
     var baseUri = protocol + "://" + host
 
     if (options.port) {
-        baseUri = baseUri ":" + options.port
+        baseUri = baseUri + ":" + options.port
     }
 
     if (options.path) {
